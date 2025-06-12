@@ -1,0 +1,14 @@
+{
+    "name": "ssl/05-composer",
+    "description": "Estudando Composer",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Symon",
+            "email": "symonlima07@gmail.com"
+        }
+    ],
+    "require": {
+        "mpdf/mpdf": "^8.2"
+    }
+}
