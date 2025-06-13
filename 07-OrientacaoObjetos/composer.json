@@ -1,0 +1,16 @@
+{
+    "name": "ssl/06-orientacao-objetos",
+    "description": "Aula de orientacao a objetos",
+    "autoload": {
+        "psr-4": {
+            "Ssl\\OrientacaoObjetos\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Symon",
+            "email": "symonlima07@gmail.com"
+        }
+    ],
+    "require": {}
+}
