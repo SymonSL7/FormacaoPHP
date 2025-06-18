@@ -7,7 +7,7 @@
 ###
 
 <h1>Descrição de Projeto:</h1>
-<p>Neste repositório contém alguns códigos de aulas do curso de Formação PHP Exprience.</p>
+<p>Neste repositório contém alguns códigos de aulas do curso de Formação PHP Exprience da DIO.</p>
 
 ###
 
