@@ -1,1 +1,1 @@
-{"version":1,"defects":[],"times":{"SearchTest::testGetAddresFromZipcodeDefaultUsage#Endere\u00e7o Pra\u00e7a da S\u00e9":0.959,"SearchTest::testGetAddresFromZipcodeDefaultUsage#Endere\u00e7o Qualquer":0.704}}
+{"version":1,"defects":[],"times":{"SearchTest::testGetAddresFromZipcodeDefaultUsage#Endere\u00e7o Pra\u00e7a da S\u00e9":0.846,"SearchTest::testGetAddresFromZipcodeDefaultUsage#Endere\u00e7o Qualquer":0.784}}
