@@ -1,0 +1,23 @@
+{
+    "name": "ss/digital-cep",
+    "description": "Busca de cep online",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Symon",
+            "email": "symonlima07@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.2.12"
+    },
+    "autoload": {
+        "psr-0": {
+            "Search": "src/"
+        },
+        "psr-4": {
+           "SSL\\DigitalCep\\": "src/" 
+        }
+    }
+}
