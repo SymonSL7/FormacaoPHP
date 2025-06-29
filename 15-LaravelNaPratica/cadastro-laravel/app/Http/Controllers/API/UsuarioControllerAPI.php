@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\UsuarioModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UsuarioControllerAPI extends Controller
 {
@@ -19,11 +20,14 @@ class UsuarioControllerAPI extends Controller
             return response("Campos nome, email e senha são obrigatórios", 400);
         }
 
-        if(UsuarioModel::cadastrar($request)){
-            return response("ok", 200);
-        } else {
-            return response("error", 409);
+        $emailExistente = DB::table('usuario')->where('email', $email)->first();
+        if ($emailExistente) {
+            return response("Email já cadastrado no sistema", 409);
         }
+
+        UsuarioModel::cadastrar($request);
+        return response("Usuário Cadastrado!", 200);
+
 
     }
 
