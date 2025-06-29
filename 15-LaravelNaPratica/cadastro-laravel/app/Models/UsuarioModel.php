@@ -5,9 +5,11 @@ namespace App\Models;
 //use GuzzleHttp\Psr7\Request;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
-class Usuario extends Model
+class UsuarioModel extends Model
 {
 
     protected $connection = "mysql";
@@ -19,26 +21,22 @@ class Usuario extends Model
             "id",
             "nome",
             "email",
+            "senha",
             "data_cadastro"
         ])
         ->limit($limite);
 
-        dd($sql->toSql());
+        return $sql->get();
 
     }
 
     public static function cadastrar(Request $request){
-
-        $sql= self::insert([
-
+        return self::insert([
             "nome" => $request->input('nome'),
             "email" => $request->input('email'),
-            "data_cadastro" => DB::raw('NOW()')
-
+            "senha" => Hash::make($request->input('senha')),
+            "data_cadastro" => new Carbon('now', 'America/Sao_Paulo')
         ]);
-
-        dd($sql->toSql(), $request->all());
-
     }
 
 }

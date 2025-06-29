@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Usuario;
+use App\Http\Controllers\UsuarioController;
 
-Route::get('/', [Usuario::class, 'cadastrar']);
-Route::post('/salvar', [Usuario::class, 'salvar']);
+Route::get('/', [UsuarioController::class, 'cadastrar'])->name('home');
+Route::post('/salvar', [UsuarioController::class, 'salvar'])->name('salvar');
