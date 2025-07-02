@@ -50,4 +50,48 @@
 
         }
 
+
+        #[Route("/deletar/{id}", name: "deletar", methods: ["DELETE"])]
+        public function deletar(int $id, EntityManagerInterface $entityManager): Response
+        {
+            $repository = $entityManager->getRepository(Usuario::class);
+            $usuario = $repository->find($id);
+
+            if (!$usuario) {
+                return new Response("Usuário não encontrado!", 404);
+            }
+
+            $entityManager->remove($usuario);
+            $entityManager->flush();
+
+            return new Response("Usuário deletado com sucesso!", 200);
+        }
+
+
+        #[Route("/editar/{id}", name: "editar", methods: ["PUT"])]
+        public function editar(int $id, Request $request, EntityManagerInterface $entityManager): Response
+        {
+
+            $repository = $entityManager->getRepository(Usuario::class);
+            $usuario = $repository->find($id);
+
+            if (!$usuario) {
+                return new Response("Usuário não encontrado!", 404);
+            }
+
+            $data = json_decode($request->getContent(), true);
+
+            if (isset($data['nome'])) {
+                $usuario->setNome($data['nome']);
+            }
+
+            if (isset($data['email'])) {
+                $usuario->setEmail($data['email']);
+            }
+
+            $entityManager->flush();
+
+            return new Response("Usuário atualizado com sucesso!", 200);
+
+        }
     }
