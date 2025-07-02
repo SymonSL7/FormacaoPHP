@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.topo {
+    background-color: blue;
+}
+
+.topo img {
+    width: 75px;
+    height: 75px;
+}
+
+.msgErro {
+    color: red;
+}
+
+.msgSucesso {
+    color: green;
+}
