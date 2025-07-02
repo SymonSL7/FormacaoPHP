@@ -81,12 +81,17 @@
 
             $data = json_decode($request->getContent(), true);
 
+
             if (isset($data['nome'])) {
                 $usuario->setNome($data['nome']);
             }
 
             if (isset($data['email'])) {
                 $usuario->setEmail($data['email']);
+            }
+
+            if(empty($usuario->getEmail()) || empty($usuario->getNome())){
+                return new Response("Email e nome devem ser preenchidos!", 404);
             }
 
             $entityManager->flush();
