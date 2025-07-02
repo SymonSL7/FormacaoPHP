@@ -33,17 +33,20 @@
             $usuario->setNome($data['nome']);
             $usuario->setEmail($data['email']);
 
+            if(empty($usuario->getEmail()) || empty($usuario->getNome())){
+                return new Response("Email e nome devem ser preenchidos!", 404);
+            }
+
             $entityManager->persist($usuario);
+            $entityManager->flush();
 
-                if($usuario->getEmail() != null && $usuario->getNome() != null  && ! $usuario->getId() ) {
+            if($usuario->getId() ) {
 
-                    $entityManager->flush();
+                return new Response("ok", 200);
 
-                    return new Response("ok", 200);
-
-                } else {
-                    return new Response("erro", 404);
-                }
+            } else {
+                return new Response("erro", 404);
+            }
 
         }
 

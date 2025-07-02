@@ -31,11 +31,16 @@
             $usuario->setNome($data['nome']);
             $usuario->setEmail($data['email']);
 
+            if(empty($usuario->getEmail()) || empty($usuario->getNome()))  {
+
+                return $this->render("usuario/erro.html.twig");
+
+            }
+
             $entityManager->persist($usuario);
+            $entityManager->flush();
 
-            if($usuario->getEmail() != null && $usuario->getNome() != null  && ! $usuario->getId() ) {
-
-                $entityManager->flush();
+            if($usuario->getId()) {
 
                 return $this->render("usuario/sucesso.html.twig", [
                     'fulano' => $usuario->getNome()
